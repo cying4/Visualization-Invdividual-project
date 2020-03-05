@@ -1,0 +1,177 @@
+html,body {
+	height: 100%;
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: normal 0.8em arial, sans-serif;
+	background-color: #e9cfcf; 
+	color: #555;
+}
+
+h1, h2, h3, h4 {
+	font: normal 175% 'century gothic', arial, sans-serif;
+	color: #111;
+	margin: 0 0 15px 0;
+	padding: 15px 0 5px 0;
+
+}
+
+h5 {
+	margin: 0;
+	padding: 0 0 5px 0;
+	font: normal 120% arial, sans-serif;
+	color: #111;
+}
+
+
+a, a:hover {
+	outline: none;
+	color: #111;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul {
+	margin: 2px 0px 22px 17px;
+}
+
+ul li {
+	list-style-type: circle;
+	margin: 0 0 6px 0;
+	padding: 0 0 4px 5px;
+}
+
+#main, #header, #logo, #menubar, #site_content, #footer {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#main {
+	width: 100x;
+	padding-bottom:100px
+	
+}
+
+#logo {
+	width: 100%;
+	position: relative;
+	height: 180px;
+	background: url(images/logo.jpg) 100% ;
+	
+}
+
+#logo_text {
+	position: absolute;
+	top: 0px;
+	left: 30px;
+}
+
+#logo h1, #logo h2 {
+	font: normal 230% 'century gothic', arial, sans-serif;
+	font-weight:bold;
+	border-bottom: 0;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+#logo_text h1, #logo_text h1 a, #logo_text h1 a:hover {
+	padding: 10px 0 0 0;
+	color: rgb(250, 243, 243) ;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+}
+
+#logo_text h2 {
+	font-size: 140%;
+	padding: 0;
+	color:rgb(250, 244, 240) ;
+}
+
+#menubar {
+	width: 890px;
+	height: 35px;
+	padding: 8px 0 0 0;
+	margin: -45px 0 0 0;
+	position: relative;
+	z-index: 1;
+	float: left;
+}
+
+ul#menu {
+	float: right;
+	margin: 0;
+}
+
+ul#menu li {
+	float: left;
+	position: relative;
+	margin: 5px 0 0 0;
+	padding: 0 0 0 6px;
+	list-style: none;
+}
+
+ul#menu li a {
+	letter-spacing: 0em;
+	font: normal 105% arial, sans-serif;
+	text-transform: uppercase;
+	display: block;
+	float: left;
+	height: 20px;
+	text-decoration: none;
+	padding: 9px 22px 5px 16px;
+	text-align: center;
+	color: #fff ;
+	border: 0;
+}
+
+ul#menu li.selected a {
+	height: 20px;
+	color: #111;
+	padding: 7px 22px 5px 16px;
+}
+
+ul#menu li.selected {
+	margin: 7px 0 0 0;
+	background: #f8f8f8;
+}
+
+ul#menu li a:hover {
+	color: #888;
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 20px);
+    overflow-y: auto;
+    background-color: #fff;
+  }
+  
+#content { 
+	text-align: left;
+	width: 700px;
+	float: left;
+	padding: 25px 0 15px 30px;
+	border-top:1px;
+}
+
+#content ul {
+	margin: 2px 0 22px 0;
+}
+
+.footer{
+    width: 100%;
+    height: 30px;
+    background-color: #e4e4e4;
+    text-align: center;
+    padding: 10px 0 10px 0;
+    border-top: 1px solid #fff;
+  }

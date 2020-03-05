@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+<head>
+	<title>Individual Project</title>
+    <link rel="stylesheet" type="text/css" href="style11.css" />
+    <script type="text/javascript"
+            src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+	<div class="content">
+		<div id="main">
+			<div id="header">
+				<div id="logo">
+					<div id="logo_text">
+						<h1>Visulization Individual Project</a></h1>
+						<h2>Analysis of Education, Health and Military Expenditure</h2>
+					</div><!-- logo_text -->
+				</div><!--logo-->
+				<div id="menubar">
+					<ul id="menu">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="Overview.html">Overview</a></li>
+						<li><a href="Comparison.html">Comparison</a></li>
+						<li><a href="Expenditure capita.html">Expenditure capita</a></li>
+						<li class="selected"><a href="Trend.html">Trend</a></li>
+						<li><a href="Conclusion.html">Conclusion</a></li>
+					</ul>
+				</div><!--menubar-->
+			</div><!-- header-->
+				<div id="content">
+                    <h1>Education Expenditure trend</h1>				
+					    <div id="Education_trend_div" style="width: 1000px; height: 700px;"></div>
+                        <p></p>
+                    <h2>Healthcare Expenditure trend</h2>				
+					    <div id="Health_trend_div" style="width: 1000px; height: 700px;"></div>
+                        <p></p>
+                    <h3>Military Expenditure trend</h3>				
+					    <div id="Military_trend_div" style="width: 1000px; height: 700px;"></div>
+						<p></p>
+					<h3>GDP trend</h3>				
+					    <div id="GDP_trend_div" style="width: 1000px; height: 700px;"></div>
+					    <p></p>
+				</div><!--content-->
+			</div><!--site_content-->	
+		</div>
+		<footer class="footer">
+			<div id="footer">
+					 <script>
+						var d=new Date(); document.write(d.getFullYear());
+					</script>
+					| DATS6401 Project | Changhao Ying | Individual Project |
+			</div><!--footer-->
+		</div>
+	</div>
+</body>
+
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawAllSheets);
+    
+    function drawAllSheets() {
+        drawSheetName('education expenditure', 'SELECT A,B,C,D,E,F,G,H,I,J,K',
+                      EducationtrendResponseHandler);
+        drawSheetName('health expenditure', 'SELECT A,B,C,D,E,F,G,H,I,J,K',
+                      HealthtrendResponseHandler);
+        drawSheetName('military expenditure', 'SELECT A,B,C,D,E,F,G,H,I,J,K',
+                      MilitarytrendResponseHandler);
+		drawSheetName('gdp expenditure', 'SELECT A,B,C,D,E,F,G,H,I,J,K',
+                      GDPResponseHandler);
+    } //drawAllSheets
+    
+    function drawSheetName(sheetName, query, responseHandler) {
+        var queryString = encodeURIComponent(query);
+        var query = new google.visualization.Query(
+            'https://docs.google.com/spreadsheets/d/1wGp5HCW_NvCalk7wbXxZMLfJE96LaFLGr_1C5bhv_XI/gviz/tq?sheet=' + sheetName + '&headers=1&tq=' +queryString  
+        );       
+        query.send(responseHandler);
+    }
+
+	function EducationtrendResponseHandler(response) {
+	    var data = response.getDataTable();
+	    var options = {
+	        title: 'Education Expenditure Trend(2011-2015)',	
+            chartArea:{left:200,width:'100%',right:200},
+            legend: { position: 'right' }};
+	    var chart = new google.visualization.LineChart(document.getElementById('Education_trend_div'));
+	    chart.draw(data, options);
+	}
+
+    function HealthtrendResponseHandler(response) {
+	    var data = response.getDataTable();
+	    var options = {
+	        title: 'Health Expenditure Trend(2011-2015)',	
+            chartArea:{left:200,width:'100%',right:200},
+            legend: { position: 'right' }};
+	    var chart = new google.visualization.LineChart(document.getElementById('Health_trend_div'));
+	    chart.draw(data, options);
+	}
+    function MilitarytrendResponseHandler(response) {
+	    var data = response.getDataTable();
+	    var options = {
+	        title: 'Military Expenditure Trend(2011-2015)',	
+            chartArea:{left:200,width:'100%',right:200},
+            legend: { position: 'right' }};
+	    var chart = new google.visualization.LineChart(document.getElementById('Military_trend_div'));
+	    chart.draw(data, options);
+	}
+	function GDPResponseHandler(response) {
+	    var data = response.getDataTable();
+	    var options = {
+	        title: 'GDP Trend(2011-2015)',	
+            chartArea:{left:200,width:'100%',right:200},
+            legend: { position: 'right' }};
+	    var chart = new google.visualization.LineChart(document.getElementById('GDP_trend_div'));
+	    chart.draw(data, options);
+	}
+</script>
+
+</html>
